@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Comments from '../Comments/Comments';
 
 
@@ -9,21 +9,40 @@ const mapStateToProps = ( reduxState ) => ({
 
 class Supported extends Component {
     
-    handleChange( event ) {
-        this.setState({
-          feedbackList: { support: event.target.value }
-        });
+    constructor() {
+        super();
+        this.state = {
+            feedbackList: {
+                support: 0
+            }
+        }
     }
 
     render() {
+
+        this.handleChange = ( event ) => {
+            this.setState({
+              feedbackList: { support: event.target.value }
+            });
+        }
+    
+        this.handleSubmit = () => {
+            this.props.feedback.push( this.state.feedbackList.support );
+            console.log( this.props.feedback );
+        }
+
         return (    
             <div>
                 <input onChange={ () => this.handleChange }
-                value={ this.props.feedbackList.support } />
+                value={ this.state.feedbackList.support } />
                 <Router>
                     <div>
                         <Route path="/4" component={ Comments }/>
-                        <Link to="/4" />
+                        <button onClick={ () => this.handleSubmit }
+                        feedback={ this.props.feedback }>
+                            <Link to="/4" >
+                            Next</Link>
+                        </button>
                     </div>
                 </Router>
             </div>

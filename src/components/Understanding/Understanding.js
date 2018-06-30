@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Supported from '../Supported/Supported';
 
 
@@ -9,21 +9,40 @@ const mapStateToProps = ( reduxState ) => ({
 
 class Understanding extends Component {
     
-    handleChange( event ) {
-        this.setState({
-          feedbackList: { understanding: event.target.value }
-        });
+    constructor() {
+        super();
+        this.state = {
+            feedbackList: {
+                understanding: 0
+            }
+        }
     }
 
     render() {
+
+        this.handleChange = ( event ) => {
+            this.setState({
+              feedbackList: { understanding: event.target.value }
+            });
+        }
+    
+        this.handleSubmit = () => {
+            this.props.feedback.push( this.state.feedbackList.understanding );
+            console.log( this.props.feedback );
+        }
+
         return (    
             <div>
                 <input onChange={ () => this.handleChange }
-                value={ this.props.feedbackList.understanding } />
+                value={ this.state.feedbackList.understanding } />
                 <Router>
                     <div>
                         <Route path="/3" component={ Supported }/>
-                        <Link to="/3" />
+                        <button onClick={ () => this.handleSubmit }
+                        feedback={ this.props.feedback }>
+                            <Link to="/3" >
+                            Next</Link>
+                        </button>
                     </div>
                 </Router>
             </div>

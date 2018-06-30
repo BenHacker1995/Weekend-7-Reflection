@@ -1,34 +1,45 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Thanks from '../Thanks/Thanks';
 
 
-const mapStateToProps = ( reduxState ) => ({
-    reduxState
-})
 
 class Feeling extends Component {
     
-    handleChange( event ) {
-        this.setState({
-          feedbackList: { comments: event.target.value }
-        });
-    }
-
-    handleSubmit( event ) {
-        event.preventDefault();
-        this.props.feedbackList.feeling
+    constructor() {
+        super();
+        this.state = {
+            feedbackList: {
+                comments: ''
+            }
+        }
     }
 
     render() {
+
+        this.handleChange = ( event ) => {
+            this.setState({
+              feedbackList: { comments: event.target.value }
+            });
+        }
+    
+        this.handleSubmit = () => {
+            this.props.feedback.push( this.state.feedbackList.comments );
+            console.log( this.props.feedback );
+        }
+
         return (    
             <div>
                 <input onChange={ () => this.handleChange }
-                value={ this.props.feedbackList.feeling } />
+                value={ this.state.feedbackList.support } />
                 <Router>
                     <div>
                         <Route path="/5" component={ Thanks }/>
-                        <Link to="/5" />
+                        <button onClick={ () => this.handleSubmit }
+                        feedback={ this.props.feedback }>
+                            <Link to="/5" >
+                            Next</Link>
+                        </button>
                     </div>
                 </Router>
             </div>
