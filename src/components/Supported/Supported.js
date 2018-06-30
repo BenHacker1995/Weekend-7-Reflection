@@ -33,6 +33,7 @@ class Supported extends Component {
 
         return (    
             <div>
+                <h3>Do you feel supported by faculty and peers?</h3>
                 <input onChange={ () => this.handleChange }
                 value={ this.state.feedbackList.support } />
                 <Router>

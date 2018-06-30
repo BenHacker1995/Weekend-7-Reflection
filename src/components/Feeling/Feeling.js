@@ -34,6 +34,7 @@ class Feeling extends Component {
 
         return (    
             <div>
+                <h3>How are you feeling?</h3>
                 <input onChange={ () => this.handleChange }
                 value={ this.state.feedbackList.feeling } />
                 <Router>

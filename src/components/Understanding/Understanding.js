@@ -33,6 +33,7 @@ class Understanding extends Component {
 
         return (    
             <div>
+                <h3>Do you feel you're understanding the content?</h3>                
                 <input onChange={ () => this.handleChange }
                 value={ this.state.feedbackList.understanding } />
                 <Router>

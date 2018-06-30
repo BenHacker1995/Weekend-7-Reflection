@@ -4,7 +4,7 @@ import Thanks from '../Thanks/Thanks';
 
 
 
-class Feeling extends Component {
+class Comments extends Component {
     
     constructor() {
         super();
@@ -30,6 +30,7 @@ class Feeling extends Component {
 
         return (    
             <div>
+                <h3>Any other comments?</h3>
                 <input onChange={ () => this.handleChange }
                 value={ this.state.feedbackList.support } />
                 <Router>
@@ -47,4 +48,4 @@ class Feeling extends Component {
     }
 }
 
-export default Feeling;
+export default Comments;
