@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Comments from '../Comments/Comments';
 
-
-const mapStateToProps = ( reduxState ) => ({
-    reduxState
-})
-
 class Supported extends Component {
     
     constructor() {
@@ -38,7 +33,7 @@ class Supported extends Component {
                 value={ this.state.feedbackList.support } />
                 <Router>
                     <div>
-                        <Route path="/4" component={ Comments }/>
+                        <Route exact path="/4" component={ Comments }/>
                         <button onClick={ () => this.handleSubmit }
                         feedback={ this.props.feedback }>
                             <Link to="/4" >

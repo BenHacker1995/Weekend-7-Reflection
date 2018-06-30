@@ -5,24 +5,24 @@ var pool = require( '../modules/pool' );
 // GET Route
 router.get( '/', ( req, res ) => {
     console.log( 'In GET request for entry' );
-    const queryText = `SELECT * from entry;`
+    const queryText = `SELECT * from feedback;`
     pool.query( queryText )
     .then(  ( result ) => {
         console.log( `Back from the database with ${ result }`);
         res.send( result.rows );
     }).catch( ( error ) => {
-        console.log( `Error getting entries: ${ error }` );
+        console.log( `Error getting feedback: ${ error }` );
         res.sendStatus( 500 );
     });
 })
 
 
 router.post( '/', ( req, res ) => {
-    console.log( 'In POST request for entry' );
+    console.log( 'In POST request for feedback' );
     let newEntry = req.body;
 
-    const queryEntryText = `INSERT INTO entry ( entrytext, projectname, dateof, starttime, endtime, entryhours ) VALUES ( $1, $2, $3, $4, $5, $6 );`;
-    pool.query( queryEntryText, [ newEntry.entrytext, newEntry.projectname, newEntry.dateof, then, now, hours ] )
+    const queryEntryText = `INSERT INTO feedback ( feeling, understanding, support, comments ) VALUES ( $1, $2, $3, $4 );`;
+    pool.query( queryEntryText, [ newEntry[0], newEntry[1], newEntry[2], newEntry[3] ] )
     .then( ( result ) => {
         console.log( `Successfully posted to database with ${ result }` );
         res.sendStatus( 201 );

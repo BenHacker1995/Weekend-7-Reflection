@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Understanding from '../Understanding/Understanding';
-
-
-const mapStateToProps = ( reduxState ) => ({
-    reduxState
-})
+// import Understanding from '../Understanding/Understanding';
 
 class Feeling extends Component {
     constructor() {
@@ -16,8 +11,6 @@ class Feeling extends Component {
             }
         }
     }
-
-
 
     render() {
 
@@ -39,12 +32,13 @@ class Feeling extends Component {
                 value={ this.state.feedbackList.feeling } />
                 <Router>
                     <div>
-                        <Route path="/2" component={ Understanding }/>
-                        <button onClick={ this.handleSubmit }
-                        feedback={ this.props.feedback }>
-                            <Link to="/2" >
-                            Next</Link>
+                        {/* <Route exact path="/2" component={ Understanding }/> */}
+                        <Link to="/2" >
+                        <button onClick={ this.handleSubmit }>
+                            
+                            Next
                         </button>
+                        </Link>
                     </div>
                 </Router>
             </div>
