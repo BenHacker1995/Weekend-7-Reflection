@@ -22,7 +22,7 @@ class Understanding extends Component {
         }
     
         this.handleSubmit = () => {
-            this.props.feedback.push( this.state.feedbackList.understanding );
+            // this.props.feedback.push( this.state.feedbackList.understanding );
             console.log( this.props.feedback );
         }
 
@@ -31,16 +31,13 @@ class Understanding extends Component {
                 <h3>Do you feel you're understanding the content?</h3>                
                 <input onChange={ () => this.handleChange }
                 value={ this.state.feedbackList.understanding } />
-                <Router>
                     <div>
-                        <Route exact path="/3" component={ Supported }/>
                         <button onClick={ () => this.handleSubmit }
                         feedback={ this.props.feedback }>
                             <Link to="/3" >
                             Next</Link>
                         </button>
                     </div>
-                </Router>
             </div>
         )
     }

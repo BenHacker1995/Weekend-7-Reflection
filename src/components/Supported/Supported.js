@@ -22,7 +22,7 @@ class Supported extends Component {
         }
     
         this.handleSubmit = () => {
-            this.props.feedback.push( this.state.feedbackList.support );
+            // this.props.feedback.push( this.state.feedbackList.support );
             console.log( this.props.feedback );
         }
 
@@ -31,16 +31,13 @@ class Supported extends Component {
                 <h3>Do you feel supported by faculty and peers?</h3>
                 <input onChange={ () => this.handleChange }
                 value={ this.state.feedbackList.support } />
-                <Router>
                     <div>
-                        <Route exact path="/4" component={ Comments }/>
                         <button onClick={ () => this.handleSubmit }
                         feedback={ this.props.feedback }>
                             <Link to="/4" >
                             Next</Link>
                         </button>
                     </div>
-                </Router>
             </div>
         )
     }

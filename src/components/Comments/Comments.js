@@ -27,7 +27,7 @@ class Comments extends Component {
         }
     
         this.handleSubmit = () => {
-            this.props.feedback.push( this.state.feedbackList.comments );
+            // this.props.feedback.push( this.state.feedbackList.comments );
             console.log( this.props.feedback );
             const action =
             { type: 'ADD_FEEDBACK', payload: this.props.feedback };
@@ -39,16 +39,13 @@ class Comments extends Component {
                 <h3>Any other comments?</h3>
                 <input onChange={ () => this.handleChange }
                 value={ this.state.feedbackList.support } />
-                <Router>
                     <div>
-                        <Route exact path="/5" component={ Thanks }/>
                         <button onClick={ () => this.handleSubmit }
                         feedback={ this.props.feedback }>
                             <Link to="/5" >
                             Next</Link>
                         </button>
                     </div>
-                </Router>
             </div>
         )
     }

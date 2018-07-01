@@ -24,7 +24,7 @@ class Feeling extends Component {
         }
     
         this.handleSubmit = () => {
-            this.props.feedback.push( this.state.feedbackList.comments );
+            // this.props.feedback.push( this.state.feedbackList.comments );
             console.log( this.props.feedback );
         }
 
@@ -33,16 +33,13 @@ class Feeling extends Component {
                 <h3>Any other comments?</h3>
                 <input onChange={ () => this.handleChange }
                 value={ this.state.feedbackList.support } />
-                <Router>
                     <div>
-                        <Route path="/5" component={ Thanks }/>
                         <button onClick={ () => this.handleSubmit }
                         feedback={ this.props.feedback }>
-                            <Link to="/5" >
-                            Next</Link>
+                            <Link to="/" >
+                            Back to the Beginning?</Link>
                         </button>
                     </div>
-                </Router>
             </div>
         )
     }

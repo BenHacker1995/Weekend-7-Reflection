@@ -18,13 +18,13 @@ class App extends Component {
         <br/>
         <Router>
           <div>
-            <Route path="/1" component={ Feeling } />
+            <Route exact path="/" component={ Feeling } />
             <Route path="/2" component={ Understanding } />
             <Route path="/3" component={ Supported } />
             <Route path="/4" component={ Comments } />
             <Route path="/5" component={ Thanks } />
               {/* <button feedback={ feedback }> */}
-            <Link to="/1">Get Started!</Link>
+            {/* <Link to="/1">Get Started!</Link> */}
               {/* </button> */}
           </div>
         </Router>
