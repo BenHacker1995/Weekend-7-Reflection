@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+
+const mapStateToProps = ( reduxState ) => ({
+    reduxState
+})
 
 class Understanding extends Component {
     
@@ -23,7 +28,7 @@ class Understanding extends Component {
         this.handleSubmit = ( event ) => {
             event.preventDefault();
             const action =
-            { type: 'ADD_UNDERSTANDING', payload: this.state.feeling };
+            { type: 'ADD_UNDERSTANDING', payload: this.state.understanding };
             this.props.dispatch( action );
         }
 
@@ -44,4 +49,4 @@ class Understanding extends Component {
     }
 }
 
-export default Understanding;
+export default connect( mapStateToProps )( Understanding );

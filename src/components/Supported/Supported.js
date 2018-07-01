@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+
+const mapStateToProps = ( reduxState ) => ({
+    reduxState
+})
 
 class Supported extends Component {
     
@@ -23,7 +28,7 @@ class Supported extends Component {
         this.handleSubmit = ( event ) => {
             event.preventDefault();
             const action =
-            { type: 'ADD_SUPPORT', payload: this.state.feeling };
+            { type: 'ADD_SUPPORT', payload: this.state.support };
             this.props.dispatch( action );
         }
 
@@ -44,4 +49,4 @@ class Supported extends Component {
     }
 }
 
-export default Supported;
+export default connect( mapStateToProps )( Supported );
