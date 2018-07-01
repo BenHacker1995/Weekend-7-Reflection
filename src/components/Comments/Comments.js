@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-import Thanks from '../Thanks/Thanks';
 
 const mapStateToProps = ( reduxState ) => ({
     reduxState
@@ -26,11 +25,10 @@ class Comments extends Component {
             });
         }
     
-        this.handleSubmit = () => {
-            // this.props.feedback.push( this.state.feedbackList.comments );
-            console.log( this.props.feedback );
+        this.handleSubmit = ( event ) => {
+            event.preventDefault();
             const action =
-            { type: 'ADD_FEEDBACK', payload: this.props.feedback };
+            { type: 'ADD_COMMENTS', payload: this.props.feedback };
             this.props.dispatch( action );
         }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Supported from '../Supported/Supported';
@@ -23,9 +23,6 @@ class App extends Component {
             <Route path="/3" component={ Supported } />
             <Route path="/4" component={ Comments } />
             <Route path="/5" component={ Thanks } />
-              {/* <button feedback={ feedback }> */}
-            {/* <Link to="/1">Get Started!</Link> */}
-              {/* </button> */}
           </div>
         </Router>
       </div>

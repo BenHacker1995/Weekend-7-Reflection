@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Comments from '../Comments/Comments';
+import { Link } from 'react-router-dom';
 
 class Supported extends Component {
     
@@ -21,9 +20,11 @@ class Supported extends Component {
             });
         }
     
-        this.handleSubmit = () => {
-            // this.props.feedback.push( this.state.feedbackList.support );
-            console.log( this.props.feedback );
+        this.handleSubmit = ( event ) => {
+            event.preventDefault();
+            const action =
+            { type: 'ADD_SUPPORT', payload: this.state.feeling };
+            this.props.dispatch( action );
         }
 
         return (    

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Supported from '../Supported/Supported';
+import { Link } from 'react-router-dom';
 
 class Understanding extends Component {
     
@@ -21,9 +20,11 @@ class Understanding extends Component {
             });
         }
     
-        this.handleSubmit = () => {
-            // this.props.feedback.push( this.state.feedbackList.understanding );
-            console.log( this.props.feedback );
+        this.handleSubmit = ( event ) => {
+            event.preventDefault();
+            const action =
+            { type: 'ADD_UNDERSTANDING', payload: this.state.feeling };
+            this.props.dispatch( action );
         }
 
         return (    

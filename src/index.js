@@ -8,9 +8,22 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 const feedbackReducer = ( state = [], action ) => {
-    if( action.type === 'ADD_FEEDBACK' ) {
-        console.log( 'In feedbackReducer' );
-        // return [ ...state, action.payload ]
+    if( action.type === 'ADD_FEELING' ) {
+        state.push( action.payload );
+        console.log( state );
+    }
+    else if( action.type === 'ADD_UNDERSTANDING' ) {
+        state.push( action.payload );
+        console.log( state );
+    }
+    else if( action.type === 'ADD_SUPPORT' ) {
+        state.push( action.payload );
+        console.log( state );
+    }
+    else if( action.type === 'ADD_COMMENTS' ) {
+        state.push( action.payload );
+        console.log( state );
+        return state;
     }
     return state;
 }

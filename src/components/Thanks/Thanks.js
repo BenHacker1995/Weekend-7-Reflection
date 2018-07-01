@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Thanks from '../Thanks/Thanks';
+import { Link } from 'react-router-dom';
 
 
 
@@ -24,22 +23,19 @@ class Feeling extends Component {
         }
     
         this.handleSubmit = () => {
-            // this.props.feedback.push( this.state.feedbackList.comments );
             console.log( this.props.feedback );
         }
 
         return (    
             <div>
-                <h3>Any other comments?</h3>
-                <input onChange={ () => this.handleChange }
-                value={ this.state.feedbackList.support } />
-                    <div>
-                        <button onClick={ () => this.handleSubmit }
-                        feedback={ this.props.feedback }>
-                            <Link to="/" >
-                            Back to the Beginning?</Link>
-                        </button>
-                    </div>
+                <h3>Thank you for your feedback!</h3>
+                <div>
+                    <button>
+                        <Link to="/" >
+                            Back to the Beginning?
+                        </Link>
+                    </button>
+                </div>
             </div>
         )
     }
