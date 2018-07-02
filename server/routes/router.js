@@ -1,11 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var pool = require( '../modules/pool' );
-import { connect } from 'react-redux'
-
-const mapStateToProps = ( reduxState ) => ({
-    reduxState
-})
 
 // GET Route
 router.get( '/', ( req, res ) => {
@@ -24,14 +19,15 @@ router.get( '/', ( req, res ) => {
 
 router.post( '/', ( req, res ) => {
     console.log( 'In POST request for feedback' );
+    // let newEntry = this.props.reduxState;
     let newEntry = req.body;
 
     const queryEntryText = `INSERT INTO feedback ( feeling, understanding, support, comments ) VALUES ( $1, $2, $3, $4 );`;
     pool.query( queryEntryText,
-        [ this.props.reduxState.feelingReducer,
-        this.props.reduxState.understandingReducer,
-        this.props.reduxState.supportReducer,
-        this.props.reduxState.commentsReducer ] )
+        [ newEntry.feelingReducer,
+        newEntry.understandingReducer,
+        newEntry.supportReducer,
+        newEntry.commentsReducer ] )
     .then( ( result ) => {
         console.log( `Successfully posted to database with ${ result }` );
         res.sendStatus( 201 );
@@ -41,4 +37,4 @@ router.post( '/', ( req, res ) => {
     })
 })
 
-export default connect( mapStateToProps )( router );
+module.exports = router;

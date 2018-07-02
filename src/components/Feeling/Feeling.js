@@ -10,8 +10,8 @@ class Feeling extends Component {
     constructor() {
         super();
         this.state = {
-                feeling: 0
-            }
+            feeling: 0
+        }
         }
 
     render() {
@@ -32,7 +32,7 @@ class Feeling extends Component {
         return (    
             <div>
                 <h3>How are you feeling?</h3>
-                <input type="number" onChange={ this.handleChange }
+                <input type="number" onChange={  this.handleChange }
                 value={ this.state.feeling } />
                     <div>                        
                         <button onClick={ this.handleSubmit }> 

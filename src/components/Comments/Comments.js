@@ -12,9 +12,7 @@ class Comments extends Component {
     constructor() {
         super();
         this.state = {
-            feedbackList: {
-                comments: ''
-            }
+            comments: ''
         }
     }
 
@@ -22,7 +20,7 @@ class Comments extends Component {
 
         this.handleChange = ( event ) => {
             this.setState({
-              feedbackList: { comments: event.target.value }
+                comments: event.target.value
             });
         }
     
@@ -31,17 +29,16 @@ class Comments extends Component {
             const action =
             { type: 'ADD_COMMENTS', payload: this.state.comments };
             this.props.dispatch( action );
-            axios.post( this.props.reduxState )
+            axios.post( '/', this.props.reduxState );
         }
 
         return (    
             <div>
                 <h3>Any other comments?</h3>
-                <input onChange={ () => this.handleChange }
-                value={ this.state.feedbackList.support } />
+                <input type="text" onChange={ this.handleChange }
+                value={ this.state.comments } />
                     <div>
-                        <button onClick={ () => this.handleSubmit }
-                        feedback={ this.props.feedback }>
+                        <button onClick={ this.handleSubmit }>
                             <Link to="/5" >
                             Next</Link>
                         </button>

@@ -11,9 +11,7 @@ class Supported extends Component {
     constructor() {
         super();
         this.state = {
-            feedbackList: {
-                support: 0
-            }
+            support: 0
         }
     }
 
@@ -21,7 +19,7 @@ class Supported extends Component {
 
         this.handleChange = ( event ) => {
             this.setState({
-              feedbackList: { support: event.target.value }
+                support: event.target.value
             });
         }
     
@@ -35,11 +33,10 @@ class Supported extends Component {
         return (    
             <div>
                 <h3>Do you feel supported by faculty and peers?</h3>
-                <input onChange={ () => this.handleChange }
-                value={ this.state.feedbackList.support } />
+                <input type="number" onChange={ this.handleChange }
+                value={ this.state.support } />
                     <div>
-                        <button onClick={ () => this.handleSubmit }
-                        feedback={ this.props.feedback }>
+                        <button onClick={ this.handleSubmit }>
                             <Link to="/4" >
                             Next</Link>
                         </button>

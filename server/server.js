@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
+const bodyParser = require( 'body-parser' );
 const port = process.env.PORT || 5000;
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -10,7 +10,7 @@ app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
 const Router = require('./routes/router');
-app.use( '/1', '/2', '/3', '/4', Router )
+app.use( '/', Router );
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

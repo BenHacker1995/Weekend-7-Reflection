@@ -11,9 +11,7 @@ class Understanding extends Component {
     constructor() {
         super();
         this.state = {
-            feedbackList: {
-                understanding: 0
-            }
+            understanding: 0
         }
     }
 
@@ -21,7 +19,7 @@ class Understanding extends Component {
 
         this.handleChange = ( event ) => {
             this.setState({
-              feedbackList: { understanding: event.target.value }
+                understanding: event.target.value
             });
         }
     
@@ -35,11 +33,10 @@ class Understanding extends Component {
         return (    
             <div>
                 <h3>Do you feel you're understanding the content?</h3>                
-                <input onChange={ () => this.handleChange }
-                value={ this.state.feedbackList.understanding } />
+                <input type="number" onChange={ this.handleChange }
+                value={ this.state.understanding } />
                     <div>
-                        <button onClick={ () => this.handleSubmit }
-                        feedback={ this.props.feedback }>
+                        <button onClick={ this.handleSubmit }>
                             <Link to="/3" >
                             Next</Link>
                         </button>

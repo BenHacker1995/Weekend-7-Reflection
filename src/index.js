@@ -67,7 +67,6 @@ const storeInstance = createStore(
         supportReducer,
         commentsReducer
     })
-    // feedbackReducer
 
 );
 
