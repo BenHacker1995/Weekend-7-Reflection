@@ -7,12 +7,13 @@ const mapStateToProps = ( reduxState ) => ({
 })
 
 class Feeling extends Component {
+    
     constructor() {
         super();
         this.state = {
             feeling: 0
         }
-        }
+    }
 
     render() {
 

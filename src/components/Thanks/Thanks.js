@@ -9,15 +9,6 @@ const mapStateToProps = ( reduxState ) => ({
 
 
 class Thanks extends Component {
-    
-    constructor() {
-        super();
-        this.state = {
-            feedbackList: {
-                comments: ''
-            }
-        }
-    }
 
     render() {
     
