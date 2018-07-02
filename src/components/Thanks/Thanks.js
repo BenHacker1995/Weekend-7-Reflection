@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { connect } from 'react-redux'
+
+const mapStateToProps = ( reduxState ) => ({
+    reduxState
+})
 
 
-
-class Feeling extends Component {
+class Thanks extends Component {
     
     constructor() {
         super();
@@ -15,22 +20,22 @@ class Feeling extends Component {
     }
 
     render() {
-
-        this.handleChange = ( event ) => {
-            this.setState({
-              feedbackList: { comments: event.target.value }
-            });
-        }
     
         this.handleSubmit = () => {
-            console.log( this.props.feedback );
+            axios.post( '/', this.props.reduxState )
+            .then( ( response ) => {
+                console.log( 'POST worked with', response );
+            })
+            .catch( ( error ) => {
+                console.log( 'Error occurred:', error );
+            })
         }
 
         return (    
             <div>
                 <h3>Thank you for your feedback!</h3>
                 <div>
-                    <button>
+                    <button onClick={ this.handleSubmit }>
                         <Link to="/" >
                             Back to the Beginning?
                         </Link>
@@ -41,4 +46,4 @@ class Feeling extends Component {
     }
 }
 
-export default Feeling;
+export default connect( mapStateToProps )( Thanks );

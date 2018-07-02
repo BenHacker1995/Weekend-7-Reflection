@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-import axios from 'axios';
 
 const mapStateToProps = ( reduxState ) => ({
     reduxState
@@ -29,7 +28,6 @@ class Comments extends Component {
             const action =
             { type: 'ADD_COMMENTS', payload: this.state.comments };
             this.props.dispatch( action );
-            axios.post( '/', this.props.reduxState );
         }
 
         return (    
