@@ -19,7 +19,6 @@ router.get( '/', ( req, res ) => {
 
 router.post( '/', ( req, res ) => {
     console.log( 'In POST request for feedback' );
-    // let newEntry = this.props.reduxState;
     let newEntry = req.body;
 
     const queryEntryText = `INSERT INTO feedback ( feeling, understanding, support, comments ) VALUES ( $1, $2, $3, $4 );`;
@@ -29,10 +28,10 @@ router.post( '/', ( req, res ) => {
         newEntry.supportReducer,
         newEntry.commentsReducer ] )
     .then( ( result ) => {
-        console.log( `Successfully posted to database with ${ result }` );
+        console.log( 'Successfully posted to database with', result );
         res.sendStatus( 201 );
     }).catch( ( error ) => {
-        console.log( `Error posting: ${ error }` );
+        console.log( 'Error posting: ', error );
         res.sendStatus( 500 );
     })
 })

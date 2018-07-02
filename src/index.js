@@ -13,22 +13,6 @@ const feelingReducer = ( state = 0, action ) => {
         console.log( 'feeling', state );
         return state;
     }
-    // if( action.type === 'ADD_UNDERSTANDING' ) {
-    //     // state.push( action.payload );
-    //     state.understanding = action.payload;
-    //     console.log( state );
-    // }
-    // if( action.type === 'ADD_SUPPORT' ) {
-    //     // state.push( action.payload );
-    //     state.support = action.payload;
-    //     console.log( state );
-    // }
-    // if( action.type === 'ADD_COMMENTS' ) {
-    //     // state.push( action.payload );
-    //     state.comments = action.payload;
-    //     console.log( state );
-    //     return state;
-    // }
     return state;
 }
 
