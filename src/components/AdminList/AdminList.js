@@ -8,7 +8,7 @@ class AdminList extends Component {
                 <td>{ this.props.feedback.understanding }</td>
                 <td>{ this.props.feedback.support }</td>
                 <td>{ this.props.feedback.comments }</td>
-
+                <td><button onClick={ () => this.props.delete( this.props.feedback.id ) }>Delete</button></td>
             </tr>
         );
     }

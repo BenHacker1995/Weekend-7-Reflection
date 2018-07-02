@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import AdminList from '../AdminList/AdminList';
@@ -42,15 +41,22 @@ class Admin extends Component {
         })
     }
 
+    deleteFeedback = ( id ) => {
+        axios.delete( `/feedback/${id}` )
+        .then( ( response ) => {
+            // let id = response.data.id;
+            this.getFeedback();
+        })
+        .catch( ( error ) => {
+            console.log( 'Error occurred deleting feedback', error );
+        })
+    }
+
     componentDidMount() {
         this.getFeedback();
     }
 
     render() {
-
-        // this.deleteFeedback = () => {
-        //     axios.delete( '/:id' )
-        // }
 
         return(
             <div>
@@ -61,15 +67,13 @@ class Admin extends Component {
                             <th>Understanding</th>
                             <th>Support</th>
                             <th>Comments</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        { this.state.feedback.map( ( feedback, i ) => {
-                        return  <AdminList key={ i } feedback={ feedback }
-                        // understanding={ this.props.feeling.understanding }
-                        // support={ this.props.support }
-                        // comments={ this.props.comments }/>
-                        />
+                        { this.state.feedback.map( ( feedback ) => {
+                        return  <AdminList key={ feedback.id } feedback={ feedback }
+                        delete={ this.deleteFeedback }/>
                         })}
                     </tbody>
                 </table>
