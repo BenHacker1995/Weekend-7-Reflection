@@ -13,7 +13,7 @@ class Thanks extends Component {
     render() {
     
         this.handleSubmit = () => {
-            axios.post( '/', this.props.reduxState )
+            axios.post( '/feedback', this.props.reduxState )
             .then( ( response ) => {
                 console.log( 'POST worked with', response );
             })

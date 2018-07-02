@@ -7,16 +7,31 @@ import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 
 
-const feelingReducer = ( state = 0, action ) => {
+const feelingReducer = ( state = [], action ) => {
     if( action.type === 'ADD_FEELING' ) {
-        state = action.payload;
+        state.feeling = action.payload;
         console.log( 'feeling', state );
         return state;
     }
+    // if( action.type === 'ADD_UNDERSTANDING' ) {
+    //     state.understanding = action.payload;
+    //     console.log( 'understanding', state );
+    //     return state;
+    // }
+    // if( action.type === 'ADD_SUPPORT' ) {
+    //     state.support = action.payload;
+    //     console.log( 'support', state );
+    //     return state;
+    // }
+    // if( action.type === 'ADD_COMMENTS' ) {
+    //     state.comments = action.payload;
+    //     console.log( 'comments', state );
+    //     return state;
+    // }
     return state;
 }
 
-const understandingReducer = ( state = 0, action ) => {
+const understandingReducer = ( state = [], action ) => {
     if( action.type === 'ADD_UNDERSTANDING' ) {
         state = action.payload;
         console.log( 'understanding', state );
@@ -25,7 +40,7 @@ const understandingReducer = ( state = 0, action ) => {
     return state;
 }
 
-const supportReducer = ( state = 0, action ) => {
+const supportReducer = ( state = [], action ) => {
     if( action.type === 'ADD_SUPPORT' ) {
         state = action.payload;
         console.log( 'support', state );
@@ -34,7 +49,7 @@ const supportReducer = ( state = 0, action ) => {
     return state;
 }
 
-const commentsReducer = ( state = '', action ) => {
+const commentsReducer = ( state = [], action ) => {
     if( action.type === 'ADD_COMMENTS' ) {
         state = action.payload;
         console.log( 'comments', state );
